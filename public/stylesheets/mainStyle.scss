@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap');
 
 $BackgroundColor: #102027;
 $BoxColor: #37474f;
@@ -8,7 +8,7 @@ $DarkButtonHover: #162b34;
 
 $Font: 'Merriweather', serif;
 $Font_Style: normal;
-$Font_Weight_Normal: 400;
+$Font_Weight_Normal: 300;
 $Font_Weight_Bold: 700;
 
 $BoxPadding: 20px;
@@ -30,6 +30,7 @@ html, body {
     font-family: $Font;
     font-style: $Font_Style;
     font-weight: $Font_Weight_Normal;
+    letter-spacing: .7px;
 }
 
 main.WCC_Main {
@@ -80,10 +81,14 @@ div.WCC_SearchContainer {
             display: flex;
             flex-flow: row wrap;
             justify-content: flex-start;
-            align-items: flex-start;
+            align-items: center;
 
             + .WCC_SearchForm_Row {
                 margin-top: 15px;
+            }
+
+            span {
+                font-size: 14px;
             }
         }
     }
@@ -128,5 +133,113 @@ button.WCC_SubmitButton {
     &:hover, &:focus, &:active {
         cursor: pointer;
         background-color: $DarkButtonHover;
+    }
+}
+
+.WCC_SearchResults {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+
+    h2.WCC_Headline2 {
+        font-size: 18px;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    > p.WCC_Normal {
+        font-size: 13px;
+        margin: 0 0 20px 0;
+    }
+
+    ul.WCC_SearchResults_List {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 20px 0 20px 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        > li.WCC_SearchResults_List_Item {
+            flex: 0 1 auto;
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: $BoxColor;
+            border: none;
+            border-radius: $BoxBorderRadius;
+            box-shadow: 8px 8px 44px 6px rgba(0,0,0,0.1);
+            -webkit-box-shadow: 8px 8px 44px 6px rgba(0,0,0,0.1);
+            -moz-box-shadow: 8px 8px 44px 6px rgba(0,0,0,0.1);
+
+            + li.WCC_SearchResults_List_Item {
+                margin-top: 30px;
+            }
+
+            div.WCC_SearchResults_List_Item_Description {
+                flex: 0 1 auto;
+                width: 100%;
+                padding: 20px;
+
+                div.WCC_SearchResults_List_Item_Description_Row {
+                    flex: 0 1 auto;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+
+                    + div.WCC_SearchResults_List_Item_Description_Row {
+                        margin-top: 15px;
+                    }
+
+                    p.WCC_Normal {
+                        width: 100%;
+                        font-size: 12px;
+                        margin: 0;
+
+                        &:first-child {
+                            font-size: 16px;
+                            font-weight: $Font_Weight_Bold;
+                            margin-bottom: 3px;
+                        }
+                    }
+
+                    pre {
+                        width: 100%;
+                        background-color: $BoxLightColor;
+                        padding: 10px;
+
+                        code {
+                            width: 100%;
+                            white-space: pre-wrap;
+                            word-break: break-all;
+                        }
+                    }
+                }
+            }
+
+            aside.WCC_WCC_SearchResults_List_Item_ErrorBar {
+                flex: 0 1 auto;
+                width: 100%;
+                background-color: $BoxLightColor;
+                border-bottom-left-radius: $BoxBorderRadius;
+                border-bottom-right-radius: $BoxBorderRadius;
+                padding: 14px 20px;
+
+                p.WCC_Normal {
+                    font-size: 14px;
+                    margin: 0;
+                }
+            }
+        }
     }
 }

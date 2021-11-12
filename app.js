@@ -35,21 +35,29 @@ app.get("/", function(req, res) {
 });
 
 app.post("/runwcag", function(req, res) {
-    let url = req.body.obj.url;
-    if (url && url.length >= 1) {
-        pa11y(url).then((results) => {
-            res.send({
-                status: "Success",
-                message: "",
-                results: results
+    try {
+        let url = req.body.obj.url;
+        if (url && url.length >= 1) {
+            pa11y(url).then((results) => {
+                res.send({
+                    status: "Success",
+                    message: "",
+                    results: results
+                });
             });
+        } else {
+          res.send({
+            status: "Error", 
+            message: "No url was sent with the form"
+          });
+        }
+    } catch(err) {
+        res.send({
+          status: "Error", 
+          message: "No url was sent with the form"
         });
-    } else {
-      res.send({
-        status: "Error", 
-        message: "No url was sent with the form"
-      })
     }
+    
 });
 
 server.listen(port, () => console.log(`WCAG Compliance Checker - Running`));

@@ -24,7 +24,7 @@
 		}
 		
 		console.log(r);
-	}
+	};
 </script>
 
 <main class="WCC_Main">
@@ -48,10 +48,27 @@
 	{#if r?.results?.issues?.length >= 1}
 		<section class="WCC_Row">
 			<div class="WCC_SearchResults">
-				<ul>
+				<h2 class="WCC_Headline2">Showing results from: {r?.results?.pageUrl}</h2>
+				<p class="WCC_Normal">Displaying {r?.results?.issues?.length} results</p>
+				<ul class="WCC_SearchResults_List">
 					{#each r.results.issues as o}
-						<li>
-							<span>{o.code}</span>
+						<li class="WCC_SearchResults_List_Item">
+							<div class="WCC_SearchResults_List_Item_Description">
+								<div class="WCC_SearchResults_List_Item_Description_Row">
+									<p class="WCC_Normal">Type:</p>
+									<p class="WCC_Normal">{o?.type?.length >= 1 ? o.type : "No type found"}</p>
+								</div>
+								<div class="WCC_SearchResults_List_Item_Description_Row">
+									<p class="WCC_Normal">Description:</p>
+									<p class="WCC_Normal">{o?.message?.length >= 1 ? o.message : "No description found"}</p>
+								</div>
+								<div class="WCC_SearchResults_List_Item_Description_Row">
+									<pre><code>{o?.context?.length >= 1 ? o.context : "No context found"}</code></pre>
+								</div>
+							</div>
+							<aside class="WCC_WCC_SearchResults_List_Item_ErrorBar">
+								<p class="WCC_Normal">{o.code}</p>
+							</aside>
 						</li>
 					{/each}
 				</ul>
