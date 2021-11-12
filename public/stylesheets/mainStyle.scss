@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+$BackgroundColor: #102027;
+$BoxColor: #37474f;
+$BoxLightColor: #62727b;
+$White: #ffffff;
+$DarkButtonHover: #162b34;
+
+$Font: 'Merriweather', serif;
+$Font_Style: normal;
+$Font_Weight_Normal: 400;
+$Font_Weight_Bold: 700;
+
+$BoxPadding: 20px;
+$BoxBorderRadius: 12px;
+$ElementBorderRadius: 4px;
+
 * {
     box-sizing: border-box;
 }
@@ -8,6 +25,108 @@ html, body {
     padding: 0;
     margin: 0;
     border: none;
-    background-color: #ffffff;
-    color: #121212;
+    background-color: $BackgroundColor;
+    color: $White;
+    font-family: $Font;
+    font-style: $Font_Style;
+    font-weight: $Font_Weight_Normal;
+}
+
+main.WCC_Main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    section.WCC_Row {
+        flex: 0 1 auto;
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+div.WCC_SearchContainer {
+    width: 100%;
+    max-width: 650px;
+    margin: 50px auto;
+    background-color: $BoxColor;
+    padding: $BoxPadding;
+    border-radius: $BoxBorderRadius;
+    box-shadow: 8px 8px 44px 6px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 8px 8px 44px 6px rgba(0,0,0,0.1);
+    -moz-box-shadow: 8px 8px 44px 6px rgba(0,0,0,0.1);
+
+    h1.WCC_Headline1 {
+        margin: 0 0 25px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    form.WCC_SearchForm {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .WCC_SearchForm_Row {
+            flex: 0 1 auto;
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            + .WCC_SearchForm_Row {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+label.WCC_Label {
+    font-size: 12px;
+    margin: 0 0 5px 0;
+}
+
+input.WCC_Input {
+    flex: 0 1 auto;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: $ElementBorderRadius;
+    background-color: $BoxLightColor;
+    color: $White;
+    font-family: $Font;
+    font-style: $Font_Style;
+    font-weight: $Font_Weight_Normal;
+
+    &:focus, &:active {
+        outline: none;
+    }
+}
+
+button.WCC_SubmitButton {
+    display: block;
+    font-family: $Font;
+    font-style: $Font_Style;
+    font-weight: $Font_Weight_Normal;
+    background-color: $BackgroundColor;
+    color: $White;
+    border: none;
+    font-size: 13px;
+    padding: 12px 25px;
+    border-radius: $ElementBorderRadius;
+    margin: 0 0 0 auto;
+
+    &:hover, &:focus, &:active {
+        cursor: pointer;
+        background-color: $DarkButtonHover;
+    }
 }
